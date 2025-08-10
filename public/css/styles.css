@@ -1,0 +1,156 @@
+/* Color Palette */
+:root {
+  --gray: #ACADBC;
+  --lavender: #9B9ECE;
+  --indigo: #6665DD;
+  --blue: #473BF0;
+  --black: #000500;
+
+  --text-color: #ffffff;
+  --error-color: #ff6b6b;
+  --success-color: #4cd137;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, var(--lavender), var(--indigo));
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Success and Error Messages */
+.success {
+  background-color: var(--success-color);
+  color: #fff;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.error ul {
+  list-style: none;
+  background-color: var(--error-color);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Container */
+.container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+}
+
+/* Forms as Scrollable Cards */
+form {
+  background-color: var(--black);
+  border: 2px solid var(--gray);
+  border-radius: 16px;
+  padding: 2rem;
+  min-width: 300px;
+  max-width: 400px;
+  flex: 1 1 300px;
+  scroll-snap-align: start;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+form:hover {
+  transform: translateY(-5px);
+}
+
+form h2 {
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+/* Inputs & Labels */
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  background-color: var(--lavender);
+  color: var(--black);
+  font-size: 1rem;
+  margin-top: 0.3rem;
+  transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: var(--blue);
+  outline: none;
+}
+
+/* Button Styling */
+button {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: var(--blue);
+  color: var(--text-color);
+  border: none;
+  padding: 0.7rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--indigo);
+}
+
+/* Scrollable form cards */
+.container::-webkit-scrollbar {
+  height: 10px;
+}
+.container::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 10px;
+}
+.container::-webkit-scrollbar-track {
+  background: var(--lavender);
+}
+
+/* Responsive for mobile/tablets */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    width: 100%;
+    max-width: 90%;
+  }
+}
+

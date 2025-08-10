@@ -1,0 +1,201 @@
+/* ========================================================================
+   styled.css — Dashboard Stylesheet (Darker, High-Contrast Palette)
+   Updated Palette: #4B4B4B, #2F2F2F, #1A1A3A, #000066, #000000
+   ======================================================================== */
+
+/* CSS Variables */
+:root {
+  --gray-light:  #4B4B4B;
+  --gray-mid:    #2F2F2F;
+  --indigo-light:#1A1A3A;
+  --indigo:      #000066;
+  --black:       #000000;
+
+  --font-sans:   'Helvetica Neue', Arial, sans-serif;
+  --radius:      0.5rem;
+  --transition:  0.2s ease-in-out;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 100%; /* 16px */
+}
+body {
+  font-family: var(--font-sans);
+  color: var(--black);
+  background: #fff;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+/* Sticky Header */
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: var(--indigo-light);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+body {
+  padding-top: 4.5rem; /* header height + margin */
+}
+header .avatar {
+  background: var(--indigo);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 0.5rem;
+}
+.logout-button {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+.logout-button:hover {
+  background: #fff;
+  color: var(--indigo-light);
+}
+
+/* Sections */
+section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+h2 {
+  font-size: 1.5rem;
+  color: var(--indigo);
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid var(--gray-light);
+  padding-bottom: 0.25rem;
+}
+
+/* Forms */
+form {
+  margin-top: 1rem;
+}
+form textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+  background: #f9f9f9;
+  color: var(--gray-mid);
+}
+form textarea:focus {
+  outline: none;
+  border-color: var(--indigo-light);
+}
+form button {
+  background: var(--indigo);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+form button:hover {
+  background: var(--indigo-light);
+  transform: translateY(-2px);
+}
+
+/* Question & Answer Cards */
+.question, .answer {
+  background: #fff;
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: box-shadow var(--transition);
+}
+.question:hover, .answer:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.question p, .answer p {
+  margin-bottom: 0.75rem;
+  white-space: pre-wrap;
+}
+.meta {
+  font-size: 0.85rem;
+  color: var(--gray-mid);
+  margin-bottom: 0.5rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.actions form.inline {
+  display: inline-block;
+}
+.actions button {
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.actions button:hover {
+  color: var(--indigo-light);
+}
+.actions a {
+  font-size: 0.9rem;
+  color: var(--indigo);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.actions a:hover {
+  color: var(--indigo-light);
+}
+
+/* Nested answer indentation */
+.answer {
+  margin-left: 1.5rem;
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 600px) {
+  section {
+    padding: 0;
+  }
+  form.inline button {
+    padding: 0.25rem 0.5rem;
+  }
+}
+@media (min-width: 900px) {
+  body {
+    padding: 2rem;
+  }
+  section {
+    margin: 3rem auto;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
